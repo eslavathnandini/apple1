@@ -306,12 +306,12 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 
 ---
 
-## 📜 License
+##  License
 
 MIT License - Feel free to use and modify for your projects.
 
 ---
 
-## 👥 Contributors
+##  Contributors
 
 - **Nandini Eslavath** - Initial work and ML pipeline
