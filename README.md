@@ -1,10 +1,10 @@
-# 🍎 Apple Dry Matter Prediction using Machine Learning
+#  Apple Dry Matter Prediction using Machine Learning
 
 Predicting apple dry matter content from light absorption spectra using supervised machine learning.
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
 This project uses **141 wavelength absorption features** (430nm–990nm) measured from 240 apple samples to predict dry matter content using various ML algorithms.
 
@@ -17,15 +17,15 @@ This project uses **141 wavelength absorption features** (430nm–990nm) measure
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 apple1/
 │
-├── 📊 DATA
+├──  DATA
 │   └── apple1.csv                    ← Raw dataset (240 samples × 141 wavelengths)
 │
-├── 🐍 PYTHON SCRIPTS (Run in order)
+├──  PYTHON SCRIPTS (Run in order)
 │   │
 │   ├── Step 1: dry_matter_model.py       ← First LightGBM model (baseline)
 │   ├── Step 2: dry_matter_model_v2.py    ← Multi-model comparison (6 models)
@@ -36,7 +36,7 @@ apple1/
 │   ├── Step 7: save_plsr_model.py        ← Save final trained model
 │   └── Experiment: dry_matter_95.py      ← 95% accuracy attempt (documented failure)
 │
-├── 🤖 SAVED MODELS (.pkl files)
+├──  SAVED MODELS (.pkl files)
 │   │
 │   ├── optimized_pls_model.pkl           ← Best PLSR model (MSC + n=20)
 │   ├── optimized_pls_scaler.pkl          ← Scaler for optimized model
@@ -44,7 +44,7 @@ apple1/
 │   ├── pls_scaler.pkl                    ← Standard scaler
 │   └── wavelength_columns.pkl            ← Wavelength names
 │
-├── 📈 RESULT IMAGES (.png files)
+├──  RESULT IMAGES (.png files)
 │   │
 │   ├── dry_matter_results.png            ← LightGBM baseline results
 │   ├── dry_matter_full_analysis.png      ← EDA + Model comparison plots
@@ -52,17 +52,17 @@ apple1/
 │   ├── plsr_hypertuned.png              ← PLSR tuning analysis
 │   └── optimized_results.png            ← Before vs After optimization
 │
-├── 📄 DOCUMENTATION
+├──  DOCUMENTATION
 │   ├── README.md                         ← This file
 │   └── LICENSE                           ← MIT License
 │
-└── ⚙️ CONFIGURATION
+└──  CONFIGURATION
     └── .gitignore                        ← Git ignore rules
 ```
 
 ---
 
-## 🔄 ML Pipeline (What We Did)
+##  ML Pipeline (What We Did)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -131,7 +131,7 @@ apple1/
 
 ---
 
-## 🧪 Experiment: 95% Accuracy Attempt
+##  Experiment: 95% Accuracy Attempt
 
 ### File: `dry_matter_95.py`
 
@@ -183,7 +183,7 @@ Did NOT reach 95% target
 
 ---
 
-## 📊 Model Results
+##  Model Results
 
 ### Regression Models (Predict DryMatter value)
 
@@ -216,7 +216,7 @@ pip install numpy pandas scikit-learn lightgbm matplotlib seaborn scipy joblib
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Option 1: Run Complete Pipeline
 
@@ -255,7 +255,7 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 
 ---
 
-## 🧠 Key Concepts Explained
+##  Key Concepts Explained
 
 | Concept | What It Means |
 |---------|---------------|
@@ -271,7 +271,7 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 
 ---
 
-## 🔍 Key Findings
+##  Key Findings
 
 1. **MSC preprocessing** gives best results for PLSR
 2. **PLSR with n=20 components** is optimal
@@ -281,7 +281,7 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 
 ---
 
-## 📈 Results Summary
+##  Results Summary
 
 | Metric | Before Optimization | After Optimization | Improvement |
 |--------|--------------------|--------------------|-------------|
@@ -291,7 +291,7 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 
 ---
 
-## 📝 Files to Run
+##  Files to Run
 
 | Order | File | What It Does |
 |-------|------|--------------|
