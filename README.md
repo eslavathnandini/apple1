@@ -33,7 +33,8 @@ apple1/
 │   ├── Step 4: models_with_plsr.py       ← Added PLSR model (7 models total)
 │   ├── Step 5: plsr_hypertune.py         ← PLSR hyperparameter tuning
 │   ├── Step 6: optimize_model.py         ← Advanced preprocessing (SG, MSC, Ratios)
-│   └── Step 7: save_plsr_model.py        ← Save final trained model
+│   ├── Step 7: save_plsr_model.py        ← Save final trained model
+│   └── Experiment: dry_matter_95.py      ← 95% accuracy attempt (documented failure)
 │
 ├── 🤖 SAVED MODELS (.pkl files)
 │   │
@@ -127,6 +128,58 @@ apple1/
 │  • Ready for real apple testing                            │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 🧪 Experiment: 95% Accuracy Attempt
+
+### File: `dry_matter_95.py`
+
+This file represents an **experiment to achieve 95% accuracy** using advanced techniques.
+
+### What It Tested
+
+| Technique | Purpose |
+|-----------|---------|
+| Multiple Thresholds | Test different High/Low split points (25th-50th percentile) |
+| Spectral Ratios | Create band ratios between wavelengths |
+| Difference Features | Calculate wavelength differences |
+| PCA | Reduce to 20 principal components |
+| 6 Models | RF, ET, LGB, GBM, SVM, KNN |
+| Multi-Split Ensemble | 50 random splits for variance reduction |
+| Voting Classifier | Combine all models for better predictions |
+
+### Key Results
+
+```python
+Best Accuracy: 79.2% (Soft Voting)
+Did NOT reach 95% target
+```
+
+### Why 95% Was Not Achieved
+
+| Reason | Explanation |
+|--------|-------------|
+| **Small dataset** | Only 240 samples for 141 features |
+| **Narrow target range** | DryMatter only varies by 0.04 |
+| **Overlapping classes** | High/Low classes are not well-separated |
+| **Low correlation** | Max wavelength-DM correlation is only 0.195 |
+
+### What We Learned
+
+1. **Spectral ratios didn't help** — raw wavelengths already contain the information
+2. **Ensembles help** but are limited by data size
+3. **More data needed** — 1000+ samples would significantly improve results
+4. **Feature engineering has limits** — can't create information that isn't there
+
+### Why Keep This File?
+
+| Reason | Explanation |
+|--------|-------------|
+| **Documents negative results** | Shows what didn't work |
+| **Demonstrates thoroughness** | We tried everything possible |
+| **Learning resource** | Others can learn from this experiment |
+| **Scientific integrity** | Honest reporting of all attempts |
 
 ---
 
@@ -249,6 +302,7 @@ print(f'Dry Matter: {dry_matter[0][0]:.4f}')
 | 5 | `plsr_hypertune.py` | Tune PLSR parameters |
 | 6 | `optimize_model.py` | Advanced preprocessing |
 | 7 | `save_plsr_model.py` | Save final model |
+| - | `dry_matter_95.py` | Experiment: 95% accuracy attempt |
 
 ---
 
